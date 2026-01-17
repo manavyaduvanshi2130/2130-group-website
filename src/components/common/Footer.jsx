@@ -3,40 +3,45 @@ import SocialLinks from "./SocialLinks";
 export default function Footer() {
   return (
     <footer className="bg-black text-gray-400">
-      {/* TOP */}
-      <div className="max-w-7xl mx-auto px-6 py-20 grid gap-12 md:grid-cols-4">
-        {/* BRAND */}
+      {/* TOP GRID */}
+      <div className="max-w-7xl mx-auto px-6 py-24 grid gap-12 md:grid-cols-4">
+        {/* BRAND WITH LOGO */}
         <div>
-          <h3 className="text-3xl font-extrabold text-white mb-4">
-            2130<span className="text-red-500">GROUP</span>
-          </h3>
-          <p className="text-sm leading-relaxed max-w-xs">
-            A digital product studio focused on building scalable, reliable, and
-            business-driven software solutions.
+          <div className="flex items-center gap-3 mb-3">
+            <img
+              src="/src/assests/images/logos/logo1.png"
+              alt="2130 Group Logo"
+              className="w-10 h-10 object-contain"
+            />
+            <h3 className="text-white text-lg font-semibold">2130 GROUP</h3>
+          </div>
+
+          <p className="text-xs uppercase tracking-widest text-gray-500">
+            Digital Product Studio
           </p>
         </div>
 
         {/* COMPANY */}
         <div>
-          <h4 className="text-white font-semibold mb-4">Company</h4>
-          <ul className="space-y-3 text-sm">
+          <h4 className="text-white text-sm font-semibold mb-4">Company</h4>
+          <ul className="space-y-2 text-sm">
             <li>
-              <a href="/about" className="hover:text-red-500 transition">
+              <a href="/about" className="hover:text-white">
                 About Us
               </a>
             </li>
             <li>
-              <a href="/services" className="hover:text-red-500 transition">
+              <a href="/services" className="hover:text-white">
                 Services
               </a>
             </li>
             <li>
-              <a href="/products" className="hover:text-red-500 transition">
+              <a href="/products" className="hover:text-white">
                 Products
               </a>
             </li>
             <li>
-              <a href="/contact" className="hover:text-red-500 transition">
+              <a href="/contact" className="hover:text-white">
                 Contact
               </a>
             </li>
@@ -45,38 +50,43 @@ export default function Footer() {
 
         {/* CURRENT PRODUCT */}
         <div>
-          <h4 className="text-white font-semibold mb-4">Current Product</h4>
-          <p className="text-sm text-white font-medium mb-2">Aapni Dairy</p>
+          {" "}
+          <h4 className="text-white font-semibold mb-4">
+            Current Product
+          </h4>{" "}
+          <p className="text-sm text-white font-medium mb-2">Aapni Dairy</p>{" "}
           <p className="text-sm leading-relaxed mb-4">
+            {" "}
             Digital ledger & management app for dairy owners and milk
-            collectors.
-          </p>
+            collectors.{" "}
+          </p>{" "}
           <a
             href="https://play.google.com/store/apps/details?id=com.aapnidairy.app"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block text-red-500 font-medium hover:underline"
           >
-            View on Play Store →
-          </a>
+            {" "}
+            View on Play Store →{" "}
+          </a>{" "}
         </div>
 
         {/* CONNECT */}
         <div>
-          <h4 className="text-white font-semibold mb-4">Connect With Us</h4>
-          <p className="text-sm mb-4">
-            Follow Aapni Dairy or reach out directly.
-          </p>
-          <SocialLinks />
+          <h4 className="text-white text-sm font-semibold mb-4">Connect</h4>
+          <p className="text-sm">Follow Aapni Dairy or reach out directly.</p>
         </div>
       </div>
 
+      {/* DIVIDER */}
+      <div className="border-t border-gray-800" />
+
       {/* BOTTOM */}
-      <div className="border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-          <p>©{new Date().getFullYear()} 2130 GROUP. All rights reserved.</p>
-          <p className="text-gray-500">Built with clarity & performance</p>
-        </div>
+      <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col items-center gap-6">
+        <SocialLinks />
+        <p className="text-xs text-gray-500">
+          © {new Date().getFullYear()} 2130 GROUP. All rights reserved.
+        </p>
       </div>
     </footer>
   );

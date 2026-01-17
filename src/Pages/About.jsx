@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Container from "../components/common/Container";
-
+import EmployeesSection from "../components/sections/EmployeesSection";
 export default function About() {
   return (
     <>
@@ -146,9 +146,9 @@ export default function About() {
                 className="h-32 w-32 mx-auto rounded-full  mb-6"
               />
               <h4 className="text-lg font-semibold text-gray-900">
-                Founder Name
+                Ramesh Kumar Yadav
               </h4>
-              <p className="text-sm text-gray-500">Founder & Product Lead</p>
+              <p className="text-sm text-gray-500">Founder & CEO </p>
             </div>
 
             {/* Co-Founder */}
@@ -159,7 +159,7 @@ export default function About() {
                 className="h-32 w-32 mx-auto rounded-full  mb-6"
               />
               <h4 className="text-lg font-semibold text-gray-900">
-                Co-Founder Name
+                Rahul Yadav
               </h4>
               <p className="text-sm text-gray-500">
                 Co-Founder & Engineering Lead
@@ -168,7 +168,7 @@ export default function About() {
           </div>
         </Container>
       </section>
-
+      <EmployeesSection />
       {/* ================= CTA ================= */}
       <section className="py-28 bg-gradient-to-r from-rose-600 to-pink-600">
         <Container>
@@ -186,7 +186,10 @@ export default function About() {
                 inline-flex items-center justify-center
                 bg-white text-gray-900
                 px-10 py-4 rounded-xl font-semibold
-                hover:bg-gray-100 transition
+                hover:bg-black
+                hover:text-white transition
+                hover:rounded-full
+              
               "
             >
               Start a Project

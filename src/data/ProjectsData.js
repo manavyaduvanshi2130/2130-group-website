@@ -8,5 +8,8 @@ export const projects = [
       "Aapni Dairy is a comprehensive digital solution designed for local dairy owners and milk collectors to manage daily operations. It replaces traditional Bahi-Khata with a secure digital ledger system.",
     playStoreLink:
       "https://play.google.com/store/apps/details?id=com.aapnidairy.app",
+
+    employees: ["e1", "e2", "e4"],
+    image: "../src/assests/images/projects/aapnidairy.jpg",
   },
 ];

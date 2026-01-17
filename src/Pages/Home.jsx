@@ -111,7 +111,31 @@ export default function Home() {
       </section>
 
       {/* ================= CURRENT PRODUCT ================= */}
-      <CurrentProject />
+      <section className="">
+        <CurrentProject />
+
+        {/* VIEW ALL PRODUCTS CTA */}
+        <div className="text-center pb-16">
+          <Link
+            to="/products"
+            className="
+              inline-block
+              bg-black
+              text-white
+              border-black border-2
+              px-10 py-4
+              rounded-full
+              font-medium
+              hover:bg-red-500
+              hover:border-red-500
+              hover:text-white
+              transition
+            "
+          >
+            View All Products
+          </Link>
+        </div>
+      </section>
 
       {/* ================= SERVICES ================= */}
       <section className="py-12 bg-gray-50">

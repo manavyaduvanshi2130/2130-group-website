@@ -8,15 +8,15 @@ export default function Navbar() {
 
   const isActive = (path) => location.pathname === path;
 
-  const navItem = (path) =>
+  const navItem = (active = false) =>
     `
-    relative block py-2 text-base font-medium transition
-    ${isActive(path) ? "text-red-500" : "text-gray-300 hover:text-white"}
+    relative block py-2 text-base font-medium transition cursor-pointer
+    ${active ? "text-red-500" : "text-gray-300 hover:text-white"}
     after:absolute after:left-0 after:-bottom-1
     after:h-[2px] after:w-0 after:bg-red-500
     after:transition-all after:duration-300
     hover:after:w-full
-    ${isActive(path) ? "after:w-full" : ""}
+    ${active ? "after:w-full" : ""}
   `;
 
   return (
@@ -26,6 +26,7 @@ export default function Navbar() {
           {/* LOGO */}
           <Link
             to="/"
+            onClick={() => setOpen(false)}
             className="text-xl md:text-2xl font-extrabold text-white tracking-wide"
           >
             2130<span className="text-red-500">Group</span>
@@ -33,16 +34,23 @@ export default function Navbar() {
 
           {/* DESKTOP NAV */}
           <nav className="hidden md:flex items-center gap-8">
-            <Link to="/services" className={navItem("/services")}>
+            <Link to="/" className={navItem(isActive("/"))}>
+              Home
+            </Link>
+
+            <Link to="/services" className={navItem(isActive("/services"))}>
               Services
             </Link>
-            <Link to="/products" className={navItem("/products")}>
+
+            <Link to="/products" className={navItem(isActive("/products"))}>
               Products
             </Link>
-            <Link to="/about" className={navItem("/about")}>
+
+            <Link to="/about" className={navItem(isActive("/about"))}>
               About
             </Link>
-            <Link to="/contact" className={navItem("/contact")}>
+
+            <Link to="/contact" className={navItem(isActive("/contact"))}>
               Contact
             </Link>
           </nav>
@@ -76,10 +84,19 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden bg-black border-t border-white/10">
           <div className="px-6 py-6 space-y-4">
+            {/* ✅ HOME */}
+            <Link
+              onClick={() => setOpen(false)}
+              to="/"
+              className={navItem(isActive("/"))}
+            >
+              Home
+            </Link>
+
             <Link
               onClick={() => setOpen(false)}
               to="/services"
-              className={navItem("/services")}
+              className={navItem(isActive("/services"))}
             >
               Services
             </Link>
@@ -87,7 +104,7 @@ export default function Navbar() {
             <Link
               onClick={() => setOpen(false)}
               to="/products"
-              className={navItem("/products")}
+              className={navItem(isActive("/products"))}
             >
               Products
             </Link>
@@ -95,7 +112,7 @@ export default function Navbar() {
             <Link
               onClick={() => setOpen(false)}
               to="/about"
-              className={navItem("/about")}
+              className={navItem(isActive("/about"))}
             >
               About
             </Link>
@@ -103,14 +120,14 @@ export default function Navbar() {
             <Link
               onClick={() => setOpen(false)}
               to="/contact"
-              className={navItem("/contact")}
+              className={navItem(isActive("/contact"))}
             >
               Contact
             </Link>
 
             {/* MOBILE CTA */}
             <Link
-              onClick={() => setOpen(true)}
+              onClick={() => setOpen(false)}
               to="/contact"
               className="
                 block mt-6 text-center

@@ -1,90 +1,87 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 export default function ContactForm() {
   const [form, setForm] = useState({
     name: "",
     email: "",
+    phone: "",
     message: "",
   });
 
-  const [submitted, setSubmitted] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // For now: client-side success
-    console.log("Contact Form Data:", form);
+    const newQuery = {
+      id: Date.now().toString(),
+      ...form,
+      status: "new",
+      createdAt: new Date().toISOString(),
+    };
 
-    setSubmitted(true);
-    setForm({ name: "", email: "", message: "" });
+    const existing = JSON.parse(localStorage.getItem("queries")) || [];
+    localStorage.setItem("queries", JSON.stringify([newQuery, ...existing]));
 
-    setTimeout(() => setSubmitted(false), 4000);
+    setForm({ name: "", email: "", phone: "", message: "" });
+    setSuccess(true);
   };
 
   return (
-    <motion.form
+    <form
       onSubmit={handleSubmit}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="space-y-6"
+      className="bg-white/5 backdrop-blur-xl p-6 rounded-xl space-y-4"
     >
-      {/* Name */}
-      <div>
-        <label className="block text-sm text-neutral-400 mb-2">Your Name</label>
-        <input
-          required
-          value={form.name}
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
-          className="w-full bg-neutral-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition"
-          placeholder="John Doe"
-        />
-      </div>
+      <input
+        name="name"
+        value={form.name}
+        onChange={handleChange}
+        placeholder="Your Name"
+        required
+        className="w-full input"
+      />
 
-      {/* Email */}
-      <div>
-        <label className="block text-sm text-neutral-400 mb-2">
-          Email Address
-        </label>
-        <input
-          required
-          type="email"
-          value={form.email}
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
-          className="w-full bg-neutral-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition"
-          placeholder="john@company.com"
-        />
-      </div>
+      <input
+        name="email"
+        value={form.email}
+        onChange={handleChange}
+        placeholder="Email"
+        type="email"
+        required
+        className="w-full input"
+      />
 
-      {/* Message */}
-      <div>
-        <label className="block text-sm text-neutral-400 mb-2">
-          Project Details
-        </label>
-        <textarea
-          required
-          rows="5"
-          value={form.message}
-          onChange={(e) => setForm({ ...form, message: e.target.value })}
-          className="w-full bg-neutral-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition resize-none"
-          placeholder="Tell us about your project, timeline, and goals..."
-        />
-      </div>
+      <input
+        name="phone"
+        value={form.phone}
+        onChange={handleChange}
+        placeholder="Phone"
+        required
+        className="w-full input"
+      />
 
-      {/* Submit */}
-      <button
-        type="submit"
-        className="w-full bg-indigo-500 hover:bg-indigo-400 text-black font-semibold py-4 rounded-xl transition"
-      >
-        Send Message
+      <textarea
+        name="message"
+        value={form.message}
+        onChange={handleChange}
+        placeholder="Your Message"
+        required
+        className="w-full input h-28"
+      />
+
+      <button className="w-full bg-cyan-500 text-black py-2 rounded-lg font-semibold">
+        Submit Query
       </button>
 
-      {/* Success Message */}
-      {submitted && (
+      {success && (
         <p className="text-green-400 text-sm text-center">
-          Thanks! We’ll be in touch shortly.
+          Query saved successfully
         </p>
       )}
-    </motion.form>
+    </form>
   );
 }

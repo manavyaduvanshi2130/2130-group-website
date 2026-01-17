@@ -1,31 +1,37 @@
+import { Link } from "react-router-dom";
 import Container from "../components/common/Container";
 
 export default function Products() {
   return (
     <>
       {/* ================= HERO ================= */}
-      <section className="py-24 bg-white">
+      <section className="py-28 bg-black text-white">
         <Container>
           <div className="max-w-3xl">
-            <h1 className="text-5xl font-bold text-gray-900 mb-6">
-              Our Products
+            <p className="text-sm tracking-widest text-red-500 mb-4 uppercase">
+              Products
+            </p>
+
+            <h1 className="text-5xl lg:text-6xl font-extrabold mb-6">
+              Real Products. <br /> Real Usage.
             </h1>
-            <p className="text-lg text-gray-600">
-              Real-world digital products built, launched, and actively used by
-              customers.
+
+            <p className="text-lg text-gray-300">
+              Digital products built, launched, and actively used by real
+              customers in real environments.
             </p>
           </div>
         </Container>
       </section>
 
-      {/* ================= CURRENT PRODUCT ================= */}
-      <section className="pb-28 bg-white">
+      {/* ================= FEATURED PRODUCT ================= */}
+      <section className="py-24 bg-white">
         <Container>
-          <div className="bg-white border rounded-3xl p-10 shadow-sm">
-            <div className="grid md:grid-cols-3 gap-12 items-center">
+          <div className="border rounded-3xl p-12 shadow-sm hover:shadow-md transition">
+            <div className="grid lg:grid-cols-3 gap-14 items-center">
               {/* LEFT CONTENT */}
-              <div className="md:col-span-2">
-                <div className="flex items-center gap-4 mb-4">
+              <div className="lg:col-span-2">
+                <div className="flex items-center gap-4 mb-6">
                   <span className="text-sm font-medium text-red-500">
                     Agri-Tech / Utility
                   </span>
@@ -34,44 +40,58 @@ export default function Products() {
                   </span>
                 </div>
 
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                <h2 className="text-4xl font-bold text-gray-900 mb-5">
                   Aapni Dairy
                 </h2>
 
                 <p className="text-gray-600 mb-6 max-w-2xl">
-                  Aapni Dairy is a comprehensive digital solution designed for
-                  local dairy owners and milk collectors to manage daily
-                  operations. It replaces traditional
-                  <strong> Bahi-Khata </strong>
-                  with a secure, easy-to-use digital ledger system.
+                  Aapni Dairy is a production-grade digital platform designed
+                  for local dairy owners and milk collectors. It replaces
+                  traditional <strong>Bahi-Khata</strong> with a secure,
+                  easy-to-use digital ledger system optimized for rural users.
                 </p>
 
-                <ul className="space-y-2 text-gray-600 mb-8 text-sm">
-                  <li>• Digital milk collection & payment tracking</li>
+                <ul className="grid sm:grid-cols-2 gap-3 text-sm text-gray-600 mb-10">
+                  <li>• Digital milk collection & payments</li>
                   <li>• Farmer & customer ledger management</li>
                   <li>• Daily, monthly & yearly reports</li>
-                  <li>• Simple interface for rural users</li>
+                  <li>• Simple UI for non-technical users</li>
                 </ul>
 
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.aapnidairy.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                    inline-flex items-center gap-2
-                    text-red-500 font-medium
-                    hover:underline
-                  "
-                >
-                  View on Play Store →
-                </a>
+                {/* ACTION BUTTONS */}
+                <div className="flex flex-wrap items-center gap-6">
+                  {/* INTERNAL VIEW BUTTON */}
+                  <Link
+                    to="/projects/aapni-dairy"
+                    className="
+                  inline-flex items-center
+                  bg-red-600 text-white
+                  px-6 py-3 rounded-full
+                  text-sm font-semibold
+                  hover:bg-red-700
+                  transition
+                "
+                  >
+                    View Details →
+                  </Link>
+
+                  {/* EXTERNAL PLAY STORE */}
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.aapnidairy.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-red-500 font-semibold hover:underline"
+                  >
+                    View on Play Store
+                  </a>
+                </div>
               </div>
 
-              {/* RIGHT LOGO / VISUAL */}
-              <div className="flex justify-center md:justify-end">
-                <div className="border bg-white rounded-2xl p-8">
+              {/* RIGHT VISUAL */}
+              <div className="flex justify-center lg:justify-end">
+                <div className="rounded-2xl border bg-gray-50 p-10">
                   <img
-                    src="../src/assests/images/projects/aapnidairy.jpg"
+                    src="/src/assests/images/projects/aapnidairy.jpg"
                     alt="Aapni Dairy Logo"
                     className="h-36 w-auto object-contain"
                   />
@@ -83,29 +103,30 @@ export default function Products() {
       </section>
 
       {/* ================= CTA ================= */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-28 bg-gray-50">
         <Container>
-          <div className="max-w-2xl">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <div className="max-w-3xl">
+            <h2 className="text-4xl font-bold text-gray-900 mb-5">
               Want a Product Like This?
             </h2>
-            <p className="text-gray-600 mb-8">
-              We design and build production-ready apps and platforms for
-              real-world businesses.
+
+            <p className="text-lg text-gray-600 mb-10">
+              We design and build scalable, production-ready apps and platforms
+              tailored for real-world business problems.
             </p>
 
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="
                 inline-flex items-center justify-center
-                bg-red-500 text-white
-                px-10 py-4 rounded-full
+                bg-black text-white
+                px-12 py-5 rounded-full
                 font-semibold
-                hover:bg-red-600 transition
+                hover:bg-red-500 transition
               "
             >
               Start Your Project
-            </a>
+            </Link>
           </div>
         </Container>
       </section>

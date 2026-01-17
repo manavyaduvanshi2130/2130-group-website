@@ -1,5 +1,4 @@
-import { projects } from "../../data/ProjectsData";
-import ProjectCard from "../cards/ProjectCard";
+import { Link } from "react-router-dom";
 import Container from "../common/Container";
 
 export default function CurrentProject() {
@@ -40,14 +39,20 @@ export default function CurrentProject() {
                 digital ledger system.
               </p>
 
-              <a
-                href="https://play.google.com/store/apps/details?id=com.aapnidairy.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-red-500 font-medium hover:underline"
+              {/* VIEW DETAILS BUTTON */}
+              <Link
+                to="/projects/aapni-dairy"
+                className="
+                  inline-flex items-center
+                  bg-red-600 text-white
+                  px-6 py-3 rounded-full
+                  text-sm font-semibold
+                  hover:bg-red-700
+                  transition
+                "
               >
-                View on Play Store →
-              </a>
+                View Details →
+              </Link>
             </div>
 
             {/* RIGHT LOGO */}

@@ -1,8 +1,48 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Container from "../components/common/Container";
 import SocialLinks from "../components/common/SocialLinks";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.email || !formData.message) {
+      alert("Please fill all fields");
+      return;
+    }
+
+    setLoading(true);
+
+    /* ===============================
+       SEND QUERY (BACKEND READY)
+       ===============================
+       Replace console.log with fetch()
+       when backend is ready
+    */
+    console.log("New Contact Query:", formData);
+
+    // Simulate request delay
+    setTimeout(() => {
+      setLoading(false);
+      setSuccess(true);
+      setFormData({ name: "", email: "", message: "" });
+    }, 800);
+  };
+
   return (
     <>
       {/* ================= HERO ================= */}
@@ -35,13 +75,12 @@ export default function Contact() {
       <section className="py-5 bg-white">
         <Container>
           <div className="grid lg:grid-cols-3 gap-16 items-start">
-            {/* LEFT – QUICK CONTACT */}
+            {/* LEFT */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="lg:col-span-1"
             >
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
                 Get in Touch
@@ -55,14 +94,14 @@ export default function Contact() {
                 <div>
                   <p className="text-sm text-gray-500">Email</p>
                   <p className="font-medium text-gray-900">
-                    rahulyadavmlsu2130@gmail.com
+                    katnaxit@gmail.com
                   </p>
                 </div>
 
                 <div>
                   <p className="text-sm text-gray-500">Location</p>
                   <p className="font-medium text-gray-900">
-                    Rampura,Raithal, Jaipur, Rajasthan 303801
+                    Rampura, Raithal, Jaipur, Rajasthan 303801
                   </p>
                 </div>
 
@@ -72,7 +111,6 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* SOCIAL + WHATSAPP */}
               <div className="mt-10">
                 <h4 className="text-lg font-semibold text-gray-900 mb-2">
                   Aapni Dairy
@@ -96,56 +134,69 @@ export default function Contact() {
                 Tell Us About Your Project
               </h3>
 
-              <form className="grid md:grid-cols-2 gap-6">
-                {/* NAME */}
+              <form
+                onSubmit={handleSubmit}
+                className="grid md:grid-cols-2 gap-6"
+              >
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Name
                   </label>
                   <input
                     type="text"
-                    placeholder="Your full name"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-rose-500 focus:outline-none"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-rose-500"
                   />
                 </div>
 
-                {/* EMAIL */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Email
                   </label>
                   <input
                     type="email"
-                    placeholder="you@example.com"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-rose-500 focus:outline-none"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-rose-500"
                   />
                 </div>
 
-                {/* MESSAGE */}
                 <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Project Details
                   </label>
                   <textarea
                     rows="5"
-                    placeholder="What are you building? What help do you need?"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-rose-500 focus:outline-none"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-rose-500"
                   />
                 </div>
 
-                {/* BUTTON */}
                 <div className="md:col-span-2">
                   <button
                     type="submit"
+                    disabled={loading}
                     className="
                       w-full bg-rose-600 text-white
                       py-4 rounded-xl font-semibold text-lg
                       hover:bg-rose-500 transition
+                      disabled:opacity-60
                     "
                   >
-                    Send Message
+                    {loading ? "Sending..." : "Send Message"}
                   </button>
                 </div>
+
+                {success && (
+                  <p className="md:col-span-2 text-green-600 text-sm">
+                    Your query has been submitted successfully.
+                  </p>
+                )}
               </form>
             </motion.div>
           </div>
