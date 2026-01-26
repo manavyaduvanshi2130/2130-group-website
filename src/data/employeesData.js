@@ -24,6 +24,7 @@ export const employees = [
     id: "e4",
     name: "Karan Singh",
     role: "Backend Engineer",
+    team:"Development",
     avatar: "/employees/karan.png",
   },
 ];

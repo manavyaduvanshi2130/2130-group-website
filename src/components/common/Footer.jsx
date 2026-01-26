@@ -49,7 +49,7 @@ export default function Footer() {
         </div>
 
         {/* CURRENT PRODUCT */}
-        <div>
+        <div className="">
           {" "}
           <h4 className="text-white font-semibold mb-4">
             Current Product
