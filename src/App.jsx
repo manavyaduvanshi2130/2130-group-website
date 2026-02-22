@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import Home from "./Pages/Home";
-import Products from "./pages/Products";
-import Services from "./pages/Services";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import ProjectDetails from "./pages/ProjectDetails";
+import Products from "./Pages/Products";
+import Services from "./Pages/Services";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import ProjectDetails from "./Pages/ProjectDetails";
 import EmployeeDetails from "./Pages/EmployeeDetails";
 
 export default function App() {
