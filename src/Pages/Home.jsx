@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Container from "../components/common/Container";
 import CurrentProject from "../components/sections/CurrentProject";
-import { services } from "../data/servicesData";
+import { services } from "../data/ServicesData";
 
 export default function Home() {
   return (
