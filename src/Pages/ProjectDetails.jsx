@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import Container from "../components/common/Container";
-import { projects } from "../data/projectsData";
+import { projects } from "../data/ProjectsData";
 import { employees } from "../data/employeesData";
 
 export default function ProjectDetails() {
