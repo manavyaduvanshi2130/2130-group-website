@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import Container from "../components/common/Container";
 
-import founderIcon from "../assets/images/team/founderIcon.png";
-import ceoIcon from "../assets/images/team/ceoIcon.png";
-import girlIcon from "../assets/images/team/girlIcon.png";
+import founderIcon from "../assets/images/team/founder.png.png";
+import ceoIcon from "../assets/images/team/ceo.png.png";
+import girlIcon from "../assets/images/team/girl.png.png";
 import defaultAvatar from "../assets/images/team/defaultAvatar.png";
 
 export default function About() {
