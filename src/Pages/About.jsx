@@ -15,12 +15,12 @@ export default function About() {
   const team = [
     {
       name: "Mahesh Kumar Yadav",
-      role: "Product Manager (20+ Dairy Industry Experience)",
+      role: "Product Manager (20+ Years Dairy Industry Experience)",
       image: defaultAvatar,
     },
     {
       name: "Suresh Kumar Yadav",
-      role: "Marketing Head (10+ Marketing Experience)",
+      role: "Marketing Head (10+ Years Marketing Experience)",
       image: defaultAvatar,
     },
     {
