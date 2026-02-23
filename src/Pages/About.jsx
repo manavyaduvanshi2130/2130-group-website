@@ -1,7 +1,24 @@
 import { motion } from "framer-motion";
 import Container from "../components/common/Container";
-import EmployeesSection from "../components/sections/EmployeesSection";
+
 export default function About() {
+  const team = [
+    { name: "Rahul Yadav", role: "Founder" },
+    { name: "Ramesh Kumar Yadav", role: "CEO" },
+    {
+      name: "Mahesh Kumar Yadav",
+      role: "Product Manager (20+ Dairy Industry Experience)",
+    },
+    {
+      name: "Suresh Kumar Yadav",
+      role: "Marketing Head (10+ Marketing Experience)",
+    },
+    { name: "Pooja Yadav", role: "Agri. Advisor (Agri. B.Sc.)" },
+    { name: "Priyanshu Singh Lodhi", role: "Lead Developer (B.Tech. CSE)" },
+    { name: "Prince Singh Rao", role: "Web Developer (B.Tech. CSE)" },
+    { name: "Mohit Suthar", role: "App Developer (B.Tech. CSE)" },
+  ];
+
   return (
     <>
       {/* ================= HERO ================= */}
@@ -15,20 +32,22 @@ export default function About() {
           >
             <h1 className="text-5xl font-bold text-gray-900 mb-6">
               Building Digital Products
-              <span className="block text-rose-600">That Actually Matter</span>
+              <span className="block text-rose-600">
+                That Actually Matter
+              </span>
             </h1>
 
             <p className="text-lg text-gray-600">
               2130 Group is a digital product studio helping startups,
-              enterprises, and agencies turn ideas into scalable, high-impact
-              software.
+              enterprises, and agencies turn ideas into scalable,
+              high-impact software.
             </p>
           </motion.div>
         </Container>
       </section>
 
       {/* ================= STORY ================= */}
-      <section className="py-5 bg-white">
+      <section className="py-20 bg-white">
         <Container>
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -58,22 +77,12 @@ export default function About() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="
-    relative
-    rounded-3xl
-    overflow-hidden
-    h-[300px]
-    bg-gray-100
-  "
+              className="relative rounded-3xl overflow-hidden h-[300px] bg-gray-100"
             >
               <img
-                src="../src/assests/images/team/workspace.jpg"
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978"
                 alt="Team Workspace"
-                className="
-      absolute inset-0
-      w-full h-full
-      object-cover
-    "
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </motion.div>
           </div>
@@ -125,50 +134,38 @@ export default function About() {
         </Container>
       </section>
 
-      {/* ================= FOUNDERS ================= */}
-      <section className="py-16 bg-white">
+      {/* ================= TEAM SECTION ================= */}
+      <section className="py-24 bg-white">
         <Container>
           <div className="text-center mb-20">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Leadership
+              Leadership & Core Team
             </h2>
             <p className="text-gray-600">
               Driven by experience, clarity, and execution.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-            {/* Founder */}
-            <div className="text-center">
-              <img
-                src="../src/assests/images/team/rameshkumaryadav.jpeg
-              "
-                className="h-32 w-32 mx-auto rounded-full  mb-6"
-              />
-              <h4 className="text-lg font-semibold text-gray-900">
-                Ramesh Kumar Yadav
-              </h4>
-              <p className="text-sm text-gray-500">Founder & CEO </p>
-            </div>
-
-            {/* Co-Founder */}
-            <div className="text-center">
-              <img
-                src="../src/assests/images/team/rahulyadav.jpeg
-              "
-                className="h-32 w-32 mx-auto rounded-full  mb-6"
-              />
-              <h4 className="text-lg font-semibold text-gray-900">
-                Rahul Yadav
-              </h4>
-              <p className="text-sm text-gray-500">
-                Co-Founder & Engineering Lead
-              </p>
-            </div>
+          <div className="grid md:grid-cols-3 gap-10">
+            {team.map((member, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="bg-gray-50 rounded-2xl p-8 text-center border border-gray-200 hover:shadow-xl transition"
+              >
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {member.name}
+                </h3>
+                <p className="text-gray-600 text-sm">{member.role}</p>
+              </motion.div>
+            ))}
           </div>
         </Container>
       </section>
-      <EmployeesSection />
+
       {/* ================= CTA ================= */}
       <section className="py-28 bg-gradient-to-r from-rose-600 to-pink-600">
         <Container>
@@ -182,15 +179,7 @@ export default function About() {
 
             <a
               href="/contact"
-              className="
-                inline-flex items-center justify-center
-                bg-white text-gray-900
-                px-10 py-4 rounded-xl font-semibold
-                hover:bg-black
-                hover:text-white transition
-                hover:rounded-full
-              
-              "
+              className="inline-flex items-center justify-center bg-white text-gray-900 px-10 py-4 rounded-xl font-semibold hover:bg-black hover:text-white transition hover:rounded-full"
             >
               Start a Project
             </a>
