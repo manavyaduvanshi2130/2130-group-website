@@ -1,22 +1,48 @@
 import { motion } from "framer-motion";
 import Container from "../components/common/Container";
 
+import founderIcon from "../assets/images/team/founderIcon.png";
+import ceoIcon from "../assets/images/team/ceoIcon.png";
+import girlIcon from "../assets/images/team/girlIcon.png";
+import defaultAvatar from "../assets/images/team/defaultAvatar.png";
+
 export default function About() {
+  const leadership = [
+    { name: "Rahul Yadav", role: "Founder", image: founderIcon },
+    { name: "Ramesh Kumar Yadav", role: "CEO", image: ceoIcon },
+  ];
+
   const team = [
-    { name: "Rahul Yadav", role: "Founder" },
-    { name: "Ramesh Kumar Yadav", role: "CEO" },
     {
       name: "Mahesh Kumar Yadav",
       role: "Product Manager (20+ Dairy Industry Experience)",
+      image: defaultAvatar,
     },
     {
       name: "Suresh Kumar Yadav",
       role: "Marketing Head (10+ Marketing Experience)",
+      image: defaultAvatar,
     },
-    { name: "Pooja Yadav", role: "Agri. Advisor (Agri. B.Sc.)" },
-    { name: "Priyanshu Singh Lodhi", role: "Lead Developer (B.Tech. CSE)" },
-    { name: "Prince Singh Rao", role: "Web Developer (B.Tech. CSE)" },
-    { name: "Mohit Suthar", role: "App Developer (B.Tech. CSE)" },
+    {
+      name: "Pooja Yadav",
+      role: "Agri. Advisor (Agri. B.Sc.)",
+      image: girlIcon,
+    },
+    {
+      name: "Priyanshu Singh Lodhi",
+      role: "Lead Developer (B.Tech. CSE)",
+      image: defaultAvatar,
+    },
+    {
+      name: "Prince Singh Rao",
+      role: "Web Developer (B.Tech. CSE)",
+      image: defaultAvatar,
+    },
+    {
+      name: "Mohit Suthar",
+      role: "App Developer (B.Tech. CSE)",
+      image: defaultAvatar,
+    },
   ];
 
   return (
@@ -31,122 +57,76 @@ export default function About() {
             className="max-w-3xl"
           >
             <h1 className="text-5xl font-bold text-gray-900 mb-6">
-              Building Digital Products
+              Our Leadership & Core Team
               <span className="block text-rose-600">
-                That Actually Matter
+                Driving Innovation in Dairy & Technology
               </span>
             </h1>
 
             <p className="text-lg text-gray-600">
-              2130 Group is a digital product studio helping startups,
-              enterprises, and agencies turn ideas into scalable,
-              high-impact software.
+              We combine agriculture expertise, marketing strategy, and modern
+              technology to build scalable, high-impact solutions.
             </p>
           </motion.div>
         </Container>
       </section>
 
-      {/* ================= STORY ================= */}
-      <section className="py-20 bg-white">
+      {/* ================= LEADERSHIP ================= */}
+      <section className="py-24 bg-white">
         <Container>
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Our Story
-              </h2>
-
-              <p className="text-gray-600 mb-4">
-                We started 2130 Group with a simple belief — great products are
-                built at the intersection of design, engineering, and strategy.
-              </p>
-
-              <p className="text-gray-600">
-                Today, we partner with ambitious teams to design, build, and
-                scale digital products that are fast, reliable, and loved by
-                users.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative rounded-3xl overflow-hidden h-[300px] bg-gray-100"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978"
-                alt="Team Workspace"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </motion.div>
-          </div>
-        </Container>
-      </section>
-
-      {/* ================= VALUES ================= */}
-      <section className="py-28 bg-gray-50">
-        <Container>
-          <div className="text-center mb-20">
+          <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              What We Believe In
+              Leadership
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Our values guide how we work, collaborate, and deliver results.
+            <p className="text-gray-600">
+              Visionary leadership driving long-term growth.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-10">
-            {[
-              {
-                title: "Clarity First",
-                desc: "Simple solutions always outperform complex ones.",
-              },
-              {
-                title: "Design with Purpose",
-                desc: "Every pixel and decision serves a real business goal.",
-              },
-              {
-                title: "Engineering Excellence",
-                desc: "Scalable, maintainable, and future-ready code.",
-              },
-            ].map((item, i) => (
+          <div className="grid md:grid-cols-2 gap-16 max-w-4xl mx-auto">
+            {leadership.map((member, index) => (
               <motion.div
-                key={i}
+                key={index}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-xl transition"
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="bg-white rounded-3xl p-10 text-center border-2 border-yellow-400 shadow-xl hover:shadow-2xl transition"
               >
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  {item.title}
+                <div className="relative inline-block">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-36 h-36 mx-auto rounded-full mb-6 border-4 border-yellow-500 object-cover"
+                  />
+                  <span className="absolute -top-3 -right-3 bg-yellow-500 text-white text-xs px-3 py-1 rounded-full font-semibold shadow">
+                    LEADER
+                  </span>
+                </div>
+
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  {member.name}
                 </h3>
-                <p className="text-gray-600 text-sm">{item.desc}</p>
+                <p className="text-gray-600">{member.role}</p>
               </motion.div>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* ================= TEAM SECTION ================= */}
-      <section className="py-24 bg-white">
+      {/* ================= CORE TEAM ================= */}
+      <section className="py-24 bg-gray-50">
         <Container>
-          <div className="text-center mb-20">
+          <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Leadership & Core Team
+              Core Team
             </h2>
             <p className="text-gray-600">
-              Driven by experience, clarity, and execution.
+              The people who execute with excellence.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-3 gap-12">
             {team.map((member, index) => (
               <motion.div
                 key={index}
@@ -154,8 +134,14 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-gray-50 rounded-2xl p-8 text-center border border-gray-200 hover:shadow-xl transition"
+                className="bg-white rounded-2xl p-8 text-center border border-gray-200 hover:shadow-xl transition"
               >
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-28 h-28 mx-auto rounded-full mb-6 border-4 border-rose-500 object-cover"
+                />
+
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
                   {member.name}
                 </h3>
