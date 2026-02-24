@@ -1,47 +1,42 @@
 import { motion } from "framer-motion";
 import Container from "../components/common/Container";
 
-import founderIcon from "../assets/images/team/founder.png.png";
-import ceoIcon from "../assets/images/team/ceo.png.png";
-import girlIcon from "../assets/images/team/girl.png.png";
-import defaultAvatar from "../assets/images/team/defaultAvatar.png";
-
 export default function About() {
   const leadership = [
-    { name: "Rahul Yadav", role: "Founder", image: founderIcon },
-    { name: "Ramesh Kumar Yadav", role: "CEO", image: ceoIcon },
+    { name: "Rahul Yadav", role: "Founder", image: "/founder.png.png" },
+    { name: "Ramesh Kumar Yadav", role: "CEO", image: "/ceo.png.png" },
   ];
 
   const team = [
     {
       name: "Mahesh Kumar Yadav",
       role: "Product Manager (20+ Years Dairy Industry Experience)",
-      image: defaultAvatar,
+      image: "/defaultAvatar.png",
     },
     {
       name: "Suresh Kumar Yadav",
       role: "Marketing Head (10+ Years Marketing Experience)",
-      image: defaultAvatar,
+      image: "/defaultAvatar.png",
     },
     {
       name: "Pooja Yadav",
       role: "Agri. Advisor (Agri. B.Sc.)",
-      image: girlIcon,
+      image: "/girl.png.png",
     },
     {
       name: "Priyanshu Singh Lodhi",
       role: "Lead Developer (B.Tech. CSE)",
-      image: defaultAvatar,
+      image: "/defaultAvatar.png",
     },
     {
       name: "Prince Singh Rao",
       role: "Web Developer (B.Tech. CSE)",
-      image: defaultAvatar,
+      image: "/defaultAvatar.png",
     },
     {
       name: "Mohit Suthar",
       role: "App Developer (B.Tech. CSE)",
-      image: defaultAvatar,
+      image: "/defaultAvatar.png",
     },
   ];
 
