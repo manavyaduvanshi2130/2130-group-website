@@ -27,15 +27,8 @@ export default function Contact() {
 
     setLoading(true);
 
-    /* ===============================
-       SEND QUERY (BACKEND READY)
-       ===============================
-       Replace console.log with fetch()
-       when backend is ready
-    */
     console.log("New Contact Query:", formData);
 
-    // Simulate request delay
     setTimeout(() => {
       setLoading(false);
       setSuccess(true);
@@ -96,6 +89,17 @@ export default function Contact() {
                   <p className="font-medium text-gray-900">
                     katnaxit@gmail.com
                   </p>
+                </div>
+
+                {/* ✅ PHONE ADDED HERE */}
+                <div>
+                  <p className="text-sm text-gray-500">Phone</p>
+                  <a
+                    href="tel:+916367580153"
+                    className="font-medium text-gray-900 hover:text-rose-600 transition"
+                  >
+                    +91 6367580153
+                  </a>
                 </div>
 
                 <div>
