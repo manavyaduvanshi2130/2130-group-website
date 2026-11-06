@@ -19,8 +19,23 @@ export default function About() {
       image: "/defaultAvatar.png",
     },
     {
+      name: "Nitin Yadav",
+      role: "Genral Manager",
+      image: "/defaultAvatar.png",
+    },
+    {
+      name: "Archana Yadav",
+      role: "Agri. Advisor (Agri. B.Sc.)",
+      image: "/girl.png.png",
+    },
+    {
       name: "Pooja Yadav",
       role: "Agri. Advisor (Agri. B.Sc.)",
+      image: "/girl.png.png",
+    },
+    {
+      name: "Madhu Yadav",
+      role: "Tester",
       image: "/girl.png.png",
     },
     {
