@@ -19,6 +19,11 @@ export default function About() {
       image: "/defaultAvatar.png",
     },
     {
+      name: "Dinesh Yadav",
+      role: "Tester",
+      image: "/defaultAvatar.png",
+    },
+    {
       name: "Nitin Yadav",
       role: "Genral Manager",
       image: "/defaultAvatar.png",
